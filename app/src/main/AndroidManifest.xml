@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <!-- 카메라 권한 및 기능 설정 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+
+    <!--애플리케이션에서 지원하는 화면 크기 지정 (화면 호환 모드)-->
+    <supports-screens android:resizeable="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true" />
+
+    <!--애플리케이션 선언-->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UseOpenCVWithCMake"
+        tools:targetApi="31" >
+        <!--시각적 사용자 인터페이스 요소를 구현-->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name="RoiActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true" >
+
+        </activity>
+
+        <activity
+            android:name="TouchDraw"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true" >
+
+        </activity>
+
+    </application>
+
+</manifest>
